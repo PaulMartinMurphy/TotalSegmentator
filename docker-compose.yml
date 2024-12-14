@@ -1,0 +1,27 @@
+# Paul was here
+services:
+  predict:
+    build: .
+    ipc: host
+    ports:
+      - "6006:6006"
+    tty: true
+    volumes:
+      - src-volume:/src/
+      - tubifex-volume:/d/
+      - /c/Users/paulm/OneDrive/Desktop:/c/Desktop
+    #mem_reservation: 96g
+    #privileged: true # tried this for cupti, didn't help
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+          #memory: 20G
+volumes:
+  tubifex-volume:
+    external: true
+  src-volume:
+    external: true

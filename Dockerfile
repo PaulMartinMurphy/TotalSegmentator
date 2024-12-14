@@ -19,3 +19,6 @@ RUN python /app/totalsegmentator/download_pretrained_weights.py
 # expose not needed if using -p
 # If using only expose and not -p then will not work
 # EXPOSE 80
+
+# Paul was here
+RUN pip install pynrrd
