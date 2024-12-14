@@ -3,8 +3,8 @@ services:
   predict:
     build: .
     ipc: host
-    ports:
-      - "6006:6006"
+    #ports:
+    #  - "6006:6006"
     tty: true
     volumes:
       - src-volume:/src/
